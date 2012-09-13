@@ -1,0 +1,1 @@
+<td><%= @task.get("title") %></td>
