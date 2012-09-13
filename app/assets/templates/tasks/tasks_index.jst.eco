@@ -1,0 +1,40 @@
+<h1>Tasks</h1>
+
+<table>
+
+    <% for task in @tasks.models: %>
+    <tr>
+        <td><%= task.get("title") %></td>
+    </tr>
+
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
