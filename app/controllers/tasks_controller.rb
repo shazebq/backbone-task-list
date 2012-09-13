@@ -22,7 +22,7 @@ class TasksController < ApplicationController
     @task.save
     # Note here that rails will respond with an unprocessable entity (422)
     # it doesn't pass validation
-    respone_with(@task)
+    respond_with(@task)
   end
 
 

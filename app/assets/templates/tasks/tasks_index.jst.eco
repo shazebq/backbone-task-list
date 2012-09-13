@@ -1,16 +1,17 @@
+<div class="container box">
 <h1>Tasks</h1>
 
-<table>
+<form id="new_task">
+  <input type="text", name="name", id="new_task_title">
+  <input type="submit", value="add">
+</form>
 
+<table class="table">
     <% for task in @tasks.models: %>
-    <tr>
-        <td><%= task.get("title") %></td>
-    </tr>
-
+        <tr><td><%= task.get("title") %></td></tr>
+    <% end %>
 </table>
-
-
-
+</div>
 
 
 

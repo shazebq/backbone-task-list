@@ -5,3 +5,9 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+titles = ["Pick up milk from store", "Walk the dog", "Wash the car", "Go to dentist"]
+
+titles.each do |task_title|
+  Task.create(title: task_title)
+end
