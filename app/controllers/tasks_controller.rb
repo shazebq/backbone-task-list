@@ -26,13 +26,17 @@ class TasksController < ApplicationController
   end
 
 
-  def edit
-
+  def update
+    @task = Task.find(params[:id])
+    @task.update_attributes(params[:task])
+    respond_with(:nothing, status: 204)
   end
 
 
   def destroy
-
+    # ideally, you want to check first that the given task exists
+    Task.find(params[:id]).destroy
+    respond_with(:nothing, status: 204)
   end
 
 end

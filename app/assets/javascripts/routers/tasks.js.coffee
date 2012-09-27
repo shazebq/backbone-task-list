@@ -6,6 +6,9 @@ class BackboneTaskList.Routers.Tasks extends Backbone.Router
     @collection = new BackboneTaskList.Collections.Tasks()
     @model = new BackboneTaskList.Models.Task()
 
+    # example of having defaults but overriding them
+    @photoModel = new BackboneTaskList.Models.Photo(caption: "not the default caption anymore!")
+
     # no fetch needed on initial page load
     # you're getting the initial data from the rails view and setting to @collection
     #@collection.reset($("#container").data('tasks'))
@@ -18,4 +21,8 @@ class BackboneTaskList.Routers.Tasks extends Backbone.Router
 
     task_index_view = new BackboneTaskList.Views.TasksIndex(collection: @collection, model: @model)
 
-    $("body").html(task_index_view.render().el)
+    photoView = new BackboneTaskList.Views.PhotoView(model: @photoModel)
+
+    $("#tasks_index").html(task_index_view.render().el)
+
+    $("#photos").html(photoView.render().el)

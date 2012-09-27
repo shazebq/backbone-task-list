@@ -1,0 +1,1 @@
+<input type="text" name="title" class="title_text_field" value="<%= @current_title %>">

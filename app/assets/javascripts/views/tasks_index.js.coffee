@@ -27,9 +27,24 @@ class BackboneTaskList.Views.TasksIndex extends Backbone.View
 
   createTask: (event) ->
     event.preventDefault()
-    @collection.create title: $("#new_task_title").val()
-    # clear the contents of the form after a task is created
-    $("#new_task")[0].reset()
+    attributes = title: $("#new_task_title").val()
+    @collection.create(attributes,
+      # this waits to get the response back from the server before adding the new model to the collection
+      wait: true
+      success: ->
+        # clear the contents of the form after a task is created
+        $("#new_task")[0].reset()
+      error: @handleError
+    )
+
+  handleError: (task, response) ->
+    if response.status == 422
+      errors = $.parseJSON(response.responseText).errors
+      for attribute, messages of errors
+        alert "#{attribute} #{message}" for message in messages
+
+
+
 
 
 

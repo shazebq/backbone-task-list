@@ -1,0 +1,12 @@
+<h1>Photo Info</h1>
+
+The photo caption is:
+<h4><%= this.photo.get("caption") %></h4>
+
+<div>
+    Change the caption here if you want:<br />
+    <form id="edit_caption">
+        <input type="text" id="new_caption">
+        <input type="submit" value="Change">
+    </form>
+</div>
